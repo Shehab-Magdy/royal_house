@@ -1,42 +1,48 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
+{% block content %}
 
-<head>
-	<meta charset="utf-8">
-	<title>Royal House Login</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link rel="stylesheet" type="text/css" href="../../static/css/nunito-font.css">
-	<link rel="stylesheet" href="../../static/css/style.css" />
-</head>
-
-<body class="form-v6">
-	<div class="page-content">
+<main class="form-v6">
+		<div class="page-content">
 		<div class="form-v6-content">
 			<div class="form-left">
 				<img src="../../static/images/1.jpg" width="350" height="550" alt="form">
 			</div>
-			<form class="form-detail" action="#" method="post">
-				<h2>Login form</h2>
-				<!-- <div class="form-row">
-					<input type="text" name="full-name" id="full-name" class="input-text" placeholder="Your Name" required>
-				</div> -->
+			<form class="form-detail" action="" method="post">
+				{{ form.hidden_tag() }}
+      				<h2>Login form</h2>
 				<div class="form-row">
-					<input type="text" name="your-email" id="your-email" class="input-text" placeholder="Email Address"
-						required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+					{{ form.email.label(class="form-control-label") }}
+					{% if form.email.errors %}
+					{{ form.email(class="form-control form-control-lg is-invalid") }}
+					<div class="invalid-feedback">
+						{% for error in form.email.errors %}
+						<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+					{% else %}
+						{{ form.email(class="input-text", placeholder="Email Address") }}
+					{% endif %}
+		  <!-- <input type="text" name="your-email" id="your-email" class="input-text" placeholder="Email Address"
+						required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"> -->
 				</div>
 				<div class="form-row">
-					<input type="password" name="password" id="password" class="input-text" placeholder="Password"
-						required>
+					{{ form.password.label(class="form-control-label") }}
+					{% if form.password.errors %}
+						{{ form.password(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.password.errors %}
+							<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.password(class="input-text", placeholder="Password") }}
+					{% endif %}
+						required> -->
 				</div>
-				<!-- <div class="form-row">
-					<input type="password" name="comfirm-password" id="comfirm-password" class="input-text" placeholder="Comfirm Password" required>
-				</div>
-				<div class="form-row-last"> -->
-				<input type="submit" name="Login" class="Login" value="Login">
+				{{ form.submit(class="Login") }}
 		</div>
 		</form>
 	</div>
 	</div>
-</body>
-
-</html>
+</main>
+{% endblock content %}
