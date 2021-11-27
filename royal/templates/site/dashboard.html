@@ -129,87 +129,27 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">Dashboards</li>
                             <li>
-                                <a href="index.html">
+                                <a href="{{ url_for('home') }}">
                                     <i class="metismenu-icon pe-7s-rocket"></i>
                                     Dashboard
                                 </a>
                             </li>
 
-                            <li class="app-sidebar__heading">categorise</li>
+                            <li class="app-sidebar__heading">Categories</li>
                             <li>
-                                <a href="Cheese.html" class="mm-active">
+                                <a href="{{ url_for('create_offer_item') }}" class="mm-active">
                                     <i class="metismenu-icon pe-7s-mouse">
-                                    </i> Cheese
+                                    </i> New Offer
                                 </a>
                             </li>
+                            <li class="app-sidebar__heading">Magazine</li>
+                            
                             <li>
-                                <a href="Frozen.html" class="mm-active">
+                                <a href="{{ url_for('magazine') }}" class="mm-active">
                                     <i class="metismenu-icon pe-7s-mouse">
-                                    </i> Frozen
+                                    </i> Magazine
                                 </a>
                             </li>
-                            <li>
-                                <a href="Healthy.html" class="mm-active">
-                                    <i class="metismenu-icon pe-7s-mouse">
-                                    </i> Healthy
-                                </a>
-                            </li>
-                            <li>
-                                <a href="Grocery.html" class="mm-active">
-                                    <i class="metismenu-icon pe-7s-mouse">
-                                    </i> Grocery
-                                </a>
-                            </li>
-                            <li>
-                                <a href="Fruits & vegetables.html" class="mm-active">
-                                    <i class="metismenu-icon pe-7s-mouse">
-                                    </i> Fruits & vegetables
-                                </a>
-                            </li>
-                            <li>
-                                <a href="Meats.html" class="mm-active">
-                                    <i class="metismenu-icon pe-7s-mouse">
-                                    </i> Meats
-                                </a>
-                            </li>
-                            <li>
-                                <a href="paper products.html" class="mm-active">
-                                    <i class="metismenu-icon pe-7s-mouse">
-                                    </i> paper products
-                                </a>
-                            </li>
-                            <li>
-                                <a href="Detergents.html" class="mm-active">
-                                    <i class="metismenu-icon pe-7s-mouse">
-                                    </i> Detergents
-                                </a>
-                            </li>
-                            <li>
-                                <a href="Cosmetics.html" class="mm-active">
-                                    <i class="metismenu-icon pe-7s-mouse">
-                                    </i> Cosmetics
-                                </a>
-                            </li>
-                            <li>
-                                <a href="Kids Toys.html" class="mm-active">
-                                    <i class="metismenu-icon pe-7s-mouse">
-                                    </i> Kids Toys
-                                </a>
-                            </li>
-                            <li>
-                                <a href="Houseware.html" class="mm-active">
-                                    <i class="metismenu-icon pe-7s-mouse">
-                                    </i> Houseware
-                                </a>
-                            </li>
-                            <li class="app-sidebar__heading">magazine</li>
-                            <li>
-                                <a href="Product.html">
-                                    <i class="metismenu-icon pe-7s-rocket"></i>
-                                    magazine
-                                </a>
-                            </li>
-
                         </ul>
                     </div>
                 </div>
@@ -922,9 +862,7 @@
     </div>
     </div>
     <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-    </div>
-    </div>
-    <script type="text/javascript" src="./assets/scripts/main.js"></script>
+     <script type="text/javascript" src="./assets/scripts/main.js"></script>
 </body>
 
 </html>

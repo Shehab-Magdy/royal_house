@@ -431,235 +431,51 @@
 
 <body>
     <div class="container">
-        <div class="col-xs-12 col-md-6">
-            <!-- First product box start here-->
-            <div class="prod-info-main prod-wrap clearfix">
-                <div class="row">
-                    <div class="col-md-5 col-sm-12 col-xs-12">
-                        <div class="product-image">
-                            <img src="images/2.jpg" alt="" height="194" width="228">
-
+        <form action="" method="get">
+            <label for="d_from">Start Date</label>
+            <input type="datetime" name="d_from" id="" value '2021-11-31'>
+            <label for="d_to">End Date</label>
+            <input type="datetime" name="d_to" id="" value '2021-11-31'>
+            <input type="submit" value="Find">
+        </form>
+        {% if items_offer %}
+        {% for item in items_offer %}
+            <div class="col-xs-12 col-md-6">
+                <!-- First product box start here-->
+                <div class="prod-info-main prod-wrap clearfix">
+                    <div class="row">
+                        <div class="col-md-5 col-sm-12 col-xs-12">
+                            <div class="product-image">
+                                <img src="{{ url_for('static', filename = 'items_images/' + item.item_image) }}" alt="" height="194" width="228">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-7 col-sm-12 col-xs-12">
-                        <div class="product-deatil">
-                            <p class="price-container">
-
-                                <span>22/11/2021</span> &nbsp; <span>30/11/2021</span>
-
-                            </p>
-                            <span class="tag1"></span>
-                        </div>
-                        <div class="description">
-                            <p> جبنه المراعى شيدر 250 جرام </p>
-                        </div>
-                        <div class="product-info smart-form">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <a href="javascript:void(0);" class="btn btn-danger btn-cart"><span>50</span></a>
-                                    <a href="javascript:void(0);" class="btn btn-info"><span>90</span></a>
-                                </div>
-                                <div class="col-md-12">
+                        <div class="col-md-7 col-sm-12 col-xs-12">
+                            <div class="product-deatil">
+                                <p class="price-container">
+                                    <span>{{ item.date_from.strftime('%Y/%m/%d') }}</span> &nbsp; <span>{{ item.date_to.strftime('%Y/%m/%d') }}</span>
+                                </p>
+                                <span class="tag1"></span>
+                            </div>
+                            <div class="description">
+                                <p>{{ item.item_name }}</p>
+                            </div>
+                            <div class="product-info smart-form">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <a href="javascript:void(0);" class="btn btn-danger btn-cart"><span>{{ item.item_sale_price }}</span></a>
+                                        <a href="javascript:void(0);" class="btn btn-info"><span>{{ item.item_price }}</span></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- end product -->
             </div>
-            <!-- end product -->
-        </div>
-        <div class="col-xs-12 col-md-6">
-            <!-- First product box start here-->
-            <div class="prod-info-main prod-wrap clearfix">
-                <div class="row">
-                    <div class="col-md-5 col-sm-12 col-xs-12">
-                        <div class="product-image">
-                            <img src="images/2.jpg" height="194" width="228">
-
-                        </div>
-                    </div>
-                    <div class="col-md-7 col-sm-12 col-xs-12">
-                        <div class="product-deatil">
-                            <p class="price-container">
-
-                                <span>22/11/2021</span> &nbsp; <span>30/11/2021</span>
-
-                            </p>
-                            <span class="tag1"></span>
-                        </div>
-                        <div class="description">
-                            <p> جبنه المراعى شيدر 250 جرام </p>
-                        </div>
-                        <div class="product-info smart-form">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <a href="javascript:void(0);" class="btn btn-danger btn-cart"><span>50</span></a>
-                                    <a href="javascript:void(0);" class="btn btn-info"><span>90</span></a>
-                                </div>
-                                <div class="col-md-12">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end product -->
-        </div>
-        <div class="col-xs-12 col-md-6">
-            <!-- First product box start here-->
-            <div class="prod-info-main prod-wrap clearfix">
-                <div class="row">
-                    <div class="col-md-5 col-sm-12 col-xs-12">
-                        <div class="product-image">
-                            <img src="images/2.jpg" height="194" width="228">
-
-                        </div>
-                    </div>
-                    <div class="col-md-7 col-sm-12 col-xs-12">
-                        <div class="product-deatil">
-                            <p class="price-container">
-
-                                <span>22/11/2021</span> &nbsp; <span>30/11/2021</span>
-
-                            </p>
-                            <span class="tag1"></span>
-                        </div>
-                        <div class="description">
-                            <p> جبنه المراعى شيدر 250 جرام </p>
-                        </div>
-                        <div class="product-info smart-form">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <a href="javascript:void(0);" class="btn btn-danger btn-cart"><span>50</span></a>
-                                    <a href="javascript:void(0);" class="btn btn-info"><span>90</span></a>
-                                </div>
-                                <div class="col-md-12">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end product -->
-        </div>
-        <div class="col-xs-12 col-md-6">
-            <!-- First product box start here-->
-            <div class="prod-info-main prod-wrap clearfix">
-                <div class="row">
-                    <div class="col-md-5 col-sm-12 col-xs-12">
-                        <div class="product-image">
-                            <img src="images/2.jpg" height="194" width="228">
-
-                        </div>
-                    </div>
-                    <div class="col-md-7 col-sm-12 col-xs-12">
-                        <div class="product-deatil">
-                            <p class="price-container">
-
-                                <span>22/11/2021</span> &nbsp; <span>30/11/2021</span>
-
-                            </p>
-                            <span class="tag1"></span>
-                        </div>
-                        <div class="description">
-                            <p> جبنه المراعى شيدر 250 جرام </p>
-                        </div>
-                        <div class="product-info smart-form">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <a href="javascript:void(0);" class="btn btn-danger btn-cart"><span>50</span></a>
-                                    <a href="javascript:void(0);" class="btn btn-info"><span>90</span></a>
-                                </div>
-                                <div class="col-md-12">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end product -->
-        </div>
-        <div class="col-xs-12 col-md-6">
-            <!-- First product box start here-->
-            <div class="prod-info-main prod-wrap clearfix">
-                <div class="row">
-                    <div class="col-md-5 col-sm-12 col-xs-12">
-                        <div class="product-image">
-                            <img src="images/2.jpg" height="194" width="228">
-
-                        </div>
-                    </div>
-                    <div class="col-md-7 col-sm-12 col-xs-12">
-                        <div class="product-deatil">
-                            <p class="price-container">
-
-                                <span>22/11/2021</span> &nbsp; <span>30/11/2021</span>
-
-                            </p>
-                            <span class="tag1"></span>
-                        </div>
-                        <div class="description">
-                            <p> جبنه المراعى شيدر 250 جرام </p>
-                        </div>
-                        <div class="product-info smart-form">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <a href="javascript:void(0);" class="btn btn-danger btn-cart"><span>50</span></a>
-                                    <a href="javascript:void(0);" class="btn btn-info"><span>90</span></a>
-                                </div>
-                                <div class="col-md-12">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end product -->
-        </div>
-        <div class="col-xs-12 col-md-6">
-            <!-- First product box start here-->
-            <div class="prod-info-main prod-wrap clearfix">
-                <div class="row">
-                    <div class="col-md-5 col-sm-12 col-xs-12">
-                        <div class="product-image">
-                            <img src="images/2.jpg" height="194" width="228">
-
-                        </div>
-                    </div>
-                    <div class="col-md-7 col-sm-12 col-xs-12">
-                        <div class="product-deatil">
-                            <p class="price-container">
-
-                                <span>22/11/2021</span> &nbsp; <span>30/11/2021</span>
-
-                            </p>
-                            <span class="tag1"></span>
-                        </div>
-                        <div class="description">
-                            <p> جبنه المراعى شيدر 250 جرام </p>
-                        </div>
-                        <div class="product-info smart-form">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <a href="javascript:void(0);" class="btn btn-danger btn-cart"><span>50</span></a>
-                                    <a href="javascript:void(0);" class="btn btn-info"><span>90</span></a>
-                                </div>
-                                <div class="col-md-12">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end product -->
-        </div>
-
-
-
+        {% endfor %}
+        {% endif %}
     </div>
-    </div>
-    <a href="Cheese.html"><button class="button1">Back</button></a>
+    <a href="{{ url_for('create_offer_item') }}"><button class="button1">Back</button></a>
     <button class="button2" type="print">print</button>
 </body>
-
 </html>
