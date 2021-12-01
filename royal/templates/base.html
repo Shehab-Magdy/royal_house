@@ -76,10 +76,10 @@
                                 </div>
                                 <div class="widget-content-right header-user-info ml-3">
                                     {% if current_user.is_authenticated %}
-                                        <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+                                        <a class="nav-item nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
                                         {% else %}
-                                        <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
-                                        <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+                                        <a class="nav-item nav-link" href="{{ url_for('auth.login') }}">Login</a>
+                                        <a class="nav-item nav-link" href="{{ url_for('auth.register') }}">Register</a>
                                     {% endif %}
                                 </div>
                             </div>

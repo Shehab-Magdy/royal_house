@@ -7,6 +7,8 @@
         integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
         crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../../static/images/favicon.ico">
+
     <style>
         .prod-info-main {
             border: 1px solid #CEEFFF;
@@ -425,6 +427,7 @@
             background-color: #3e8e41;
         }
     </style>
+
 	<title>Royal House Magazine</title>
 
 </head>
@@ -475,7 +478,7 @@
         {% endfor %}
         {% endif %}
     </div>
-    <a href="{{ url_for('create_offer_item') }}"><button class="button1">Back</button></a>
+    <a href="{{ url_for('site.create_offer_item') }}"><button class="button1">Back</button></a>
     <button class="button2" type="print">print</button>
 </body>
 </html>

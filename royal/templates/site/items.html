@@ -12,6 +12,8 @@
     <meta name="description"
         content="Wide selection of forms controls, using the Bootstrap 4 code base, but built with React." />
     <meta name="msapplication-tap-highlight" content="no" />
+    <link rel="icon" type="image/x-icon" href="../../static/images/favicon.ico">
+
     <style>
         a.button {
             -webkit-appearance: button;
@@ -134,7 +136,7 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">Dashboards</li>
                             <li>
-                                <a href="{{ url_for('home') }}">
+                                <a href="{{ url_for('site.home') }}">
                                     <i class="metismenu-icon pe-7s-rocket"></i>
                                     Dashboard
                                 </a>
@@ -142,7 +144,7 @@
 
                             <li class="app-sidebar__heading">Categories</li>
                             <li>
-                                <a href="{{ url_for('create_offer_item') }}" class="mm-active">
+                                <a href="{{ url_for('site.create_offer_item') }}" class="mm-active">
                                     <i class="metismenu-icon pe-7s-mouse">
                                     </i> New Offer
                                 </a>
@@ -150,7 +152,7 @@
                             <li class="app-sidebar__heading">Magazine</li>
                             
                             <li>
-                                <a href="{{ url_for('magazine') }}" class="mm-active">
+                                <a href="{{ url_for('site.magazine') }}" class="mm-active">
                                     <i class="metismenu-icon pe-7s-mouse">
                                     </i> Magazine
                                 </a>
@@ -168,7 +170,7 @@
                                     <i class="pe-7s-display1 icon-gradient bg-premium-dark"></i>
                                 </div>
                                 <div>
-                                    <form action="{{ url_for('create_offer_item') }}" method="GET">
+                                    <form action="{{ url_for('site.create_offer_item') }}" method="GET">
                                         <label for="q">Code</label>
                                         <input type="text" placeholder="Item Code" name="q">
                                         <input type="submit" value="Get">
