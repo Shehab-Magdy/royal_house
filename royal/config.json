@@ -1,0 +1,4 @@
+{
+    "SECRET_KEY" : "bdbfdc3388f5befed4b1a5dbb3c51b8a",
+    "SQLALCHEMY_DATABASE_URI" : "sqlite:///site.db"
+}
