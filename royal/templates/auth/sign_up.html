@@ -1,5 +1,14 @@
-{% extends "base.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Royal House Register</title>
+	<link rel="stylesheet" type="text/css" href="../../static/css/nunito-font.css">
+	<link rel="stylesheet" href="../../static/css/style.css"/>
+</head>
+<body class="form-v6">
 	<main class="form-v6">
 	<div class="page-content">
 		<div class="form-v6-content">
@@ -64,8 +73,8 @@
 				<div class="form-row-last">
 					{{ form.submit(class="register") }}
 				</div>
-				<div class="border-top pt-3">
-					<small class="text-muted">
+				<div class="border-top">
+					<small class="" style="color: #e37b27">
 						Already Have an Account? <a class="" href="{{ url_for("auth.login") }}">Login</a>
 					</small>
 				</div>
@@ -73,4 +82,5 @@
 		</div>
 	</div>
 </main>
-{% endblock %}
+</body>
+</html>
