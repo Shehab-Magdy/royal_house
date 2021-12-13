@@ -5,6 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title>Royal House Register</title>
+	<link rel="icon" type="image/x-icon" href="../../static/images/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="../../static/css/nunito-font.css">
 	<link rel="stylesheet" href="../../static/css/style.css"/>
 </head>
@@ -19,7 +20,7 @@
 				{{ form.hidden_tag() }}
 				<h2>Register Form</h2>
 				<div class="form-row">
-					{{ form.username.label(class="form-control-label") }}
+					<!-- {{ form.username.label(class="form-control-label") }} -->
 					{% if form.username.errors %}
 					{{ form.username(class="form-control form-control-lg is-invalid") }}
 					<div class="invalid-feedback">
@@ -32,7 +33,7 @@
 					{% endif %}
 				</div>
 				<div class="form-row">
-					{{ form.email.label(class="form-control-label") }}
+					<!-- {{ form.email.label(class="form-control-label") }} -->
 					{% if form.email.errors %}
 					{{ form.email(class="form-control form-control-lg is-invalid") }}
 					<div class="invalid-feedback">
@@ -45,7 +46,7 @@
 					{% endif %}
 				</div>
 				<div class="form-row">
-					{{ form.password.label(class="form-control-label") }}
+					<!-- {{ form.password.label(class="form-control-label") }} -->
 					{% if form.password.errors %}
 					{{ form.password(class="form-control form-control-lg is-invalid") }}
 					<div class="invalid-feedback">
@@ -58,7 +59,7 @@
 					{% endif %}
 				</div>
 				<div class="form-row">
-					{{ form.confirm_Password.label(class="form-control-label") }}
+					<!-- {{ form.confirm_Password.label(class="form-control-label") }} -->
 					{% if form.confirm_Password.errors %}
 					{{ form.confirm_Password(class="form-control form-control-lg is-invalid") }}
 					<div class="invalid-feedback">
