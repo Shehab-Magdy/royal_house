@@ -2,6 +2,7 @@
 #import secrets
 #from datetime import date
 #from PIL import Image
+from datetime import datetime
 from flask import render_template, url_for, flash, redirect, request,Blueprint, abort
 #from sqlalchemy.orm import session
 from royal import db#,app,  crypt
@@ -9,6 +10,7 @@ from royal.site.forms import OfferForm#,LoginForm, RegistrationForm,
 from royal.site.utils import save_image
 from royal.models import offer, items#, User, 
 from flask_login import login_required, utils#, login_user, current_user, logout_user,
+from flask_weasyprint import HTML, render_pdf
 
 site = Blueprint('site', __name__)
 
@@ -52,8 +54,14 @@ def magazine():
         start = request.args.get('d_from') #'2021-11-31'
         end = request.args.get('d_to') #'2021-12-31'
         items_offer = offer.query.filter(offer.date_to <= end).filter(offer.date_from >= start).all()
-        print(items_offer)
-        return render_template("site/magazine.html", title="Magazine", items_offer = items_offer)
+        # print(items_offer)
+        file_name = 'royal/static/pdf/magazine'+str(datetime.now().strftime("%Y%m%d%H%M%S"))+'.pdf'
+        download_file_name = 'magazine'+str(datetime.now().strftime("%Y%m%d%H%M%S"))+'.pdf'
+        html_file = render_template("site/magazine.html", title="Magazine", items_offer = items_offer,file_name=download_file_name)
+        print(file_name)
+        # render_pdf()
+        HTML(string = html_file).write_pdf(file_name)
+        return html_file
     else:
         return render_template("site/magazine.html", title="Magazine")
 

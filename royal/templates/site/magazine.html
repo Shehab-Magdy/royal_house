@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-
+    <meta content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
         integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
         crossorigin="anonymous">
@@ -479,6 +479,10 @@
         {% endif %}
     </div>
     <a href="{{ url_for('site.create_offer_item') }}"><button class="button1">Back</button></a>
-    <button class="button2" type="print">print</button>
+    {% if file_name: %}
+        <a href="{{ url_for('static', filename='pdf/'+file_name) }}" target="_blank"><button class="button2" type="print">print</button></a>
+    {% else %}    
+        <a href="#"><button class="button2" type="print">print</button></a>
+    {% endif %}
 </body>
 </html>
