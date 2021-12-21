@@ -478,11 +478,16 @@
         {% endfor %}
         {% endif %}
     </div>
-    <a href="{{ url_for('site.create_offer_item') }}"><button class="button1">Back</button></a>
+    <button class="button1" onclick="goBack()" >Back</button>
     {% if file_name: %}
         <a href="{{ url_for('static', filename='pdf/'+file_name) }}" target="_blank"><button class="button2" type="print">print</button></a>
     {% else %}    
         <a href="#"><button class="button2" type="print">print</button></a>
     {% endif %}
+    <script>
+        function goBack() {
+          window.history.back();
+        }
+        </script>
 </body>
 </html>

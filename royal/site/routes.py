@@ -6,9 +6,9 @@ from datetime import datetime
 from flask import render_template, url_for, flash, redirect, request,Blueprint, abort
 #from sqlalchemy.orm import session
 from royal import db#,app,  crypt
-from royal.site.forms import OfferForm#,LoginForm, RegistrationForm, 
+from royal.site.forms import OfferForm, MagazineForm #,LoginForm, RegistrationForm, 
 from royal.site.utils import save_image
-from royal.models import Offer, Items#, User, 
+from royal.models import Offer, Items, Magazine#, User, 
 from flask_login import login_required, utils#, login_user, current_user, logout_user,
 from flask_weasyprint import HTML, render_pdf
 
@@ -35,7 +35,7 @@ def create_offer_item():
     elif request.method == 'POST':
         form = OfferForm()
         if form.validate_on_submit():
-            new_offer = Offer(code = form.code.data, item_name = form.item_name.data, item_price = form.item_price.data, item_sale_price = form.item_sale_price.data, date_from = form.date_from.data, date_to = form.date_to.data, description = form.description.data)
+            new_offer = Offer(code = form.code.data, item_name = form.item_name.data, item_price = form.item_price.data, item_sale_price = form.item_sale_price.data, description = form.description.data)
             if form.item_image.data:
                 picture_file = save_image(form.item_image.data)
                 new_offer.item_image = picture_file
@@ -65,3 +65,19 @@ def magazine():
     else:
         return render_template("site/magazine.html", title="Magazine")
 
+@site.route("/add_magazine", methods=['GET', 'POST'])
+def add_magazine():
+    if request.method == 'GET':
+        form = MagazineForm()
+        return render_template("site/add_magazine.html", title="Add Magazine", form = form)
+    elif request.method == 'POST':
+        form = MagazineForm()
+        if form.validate_on_submit():
+            new_magazine = Magazine(code = form.code.data, magazine_name = form.magazine_name.data, date_from = form.date_from.data, date_to = form.date_to.data)
+            db.session.add(new_magazine)
+            db.session.commit()
+            flash('Data saved successfully!', 'success')
+            return redirect(url_for('site.add_magazine'))
+        else:
+            flash("Data didn't saved. Please review your inputs!", 'danger')
+            return render_template("site/add_magazine.html", title="Add Magazine", form = form)

@@ -144,13 +144,13 @@
 
                             <li class="app-sidebar__heading">Categories</li>
                             <li>
-                                <a href="{{ url_for('site.create_offer_item') }}" class="mm-active">
+                                <a href="{{ url_for('site.create_offer_item') }}">
                                     <i class="metismenu-icon pe-7s-mouse">
                                     </i> New Offer
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url_for('site.add_magazine') }}">
+                                <a href="{{ url_for('site.add_magazine') }}" class="mm-active">
                                     <i class="metismenu-icon pe-7s-mouse">
                                     </i> New Magazine
                                 </a>
@@ -175,7 +175,7 @@
                                 <div class="page-title-icon">
                                     <i class="pe-7s-display1 icon-gradient bg-premium-dark"></i>
                                 </div>
-                                <div>
+                                <!-- <div>
                                     <form action="{{ url_for('site.create_offer_item') }}" method="GET">
                                         <label for="q">Code</label>
                                         <input type="text" placeholder="Item Code" name="q">
@@ -185,7 +185,7 @@
                                         Please write the item code and you can add the selling
                                         price, picture and date.
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="page-title-actions">
                                 <button type="button" data-toggle="tooltip" title="Example Tooltip"
@@ -216,37 +216,24 @@
                                 <div class="col-md-6">
                                     <div class="main-card mb-3 card">
                                         <div class="card-body">
-                                            <h5 class="card-title">Product</h5>
+                                            <h5 class="card-title">Magazine</h5>
                                             <form action="" method="post" enctype = "multipart/form-data">
                                                 {{ form.hidden_tag() }}
                                                   <div class="position-relative form-group">
                                                     {{ form.code.label }}
-                                                    {{ form.code(class="form-control", placeholder="Item Code", readonly="readonly", type="number") }}
+                                                    {{ form.code(class="form-control", placeholder="Magazine Code", type="number") }}
                                                 </div>
                                                   <div class="position-relative form-group">
-                                                    {{ form.item_name.label }}
-                                                    {{ form.item_name(class="form-control", placeholder="Item Name", readonly="readonly") }}
+                                                    {{ form.magazine_name.label }}
+                                                    {{ form.magazine_name(class="form-control", placeholder="Magazine Name") }}
                                                 </div>
                                                 <div class="position-relative form-group">
-                                                    {{ form.item_price.label }}
-                                                    {{ form.item_price(class="form-control", placeholder="Price",readonly="readonly", type="number") }}
+                                                    {{ form.date_from.label }}
+                                                    {{ form.date_from(class="form-control", placeholder="Start Date", pattern="\d{4}-\d{2}-\d{2}") }}
                                                 </div>
                                                 <div class="position-relative form-group">
-                                                    {{ form.item_sale_price.label }}
-                                                    {{ form.item_sale_price(class="form-control", placeholder="Sale Price", type="number") }}
-                                                </div>
-                                                <div class="position-relative form-group"> 
-                                                    {{ form.description.label }}
-                                                    {{ form.description(class="form-control", placeholder="Description", type="textarea") }}
-                                                </div>
-                                                <div class="position-relative form-group">
-                                                    {{ form.item_image.label() }}
-                                                    {{ form.item_image(class="form-control-file", accept=".png,.jpg") }}
-                                                    {% if form.item_image.errors %}
-                                                    {% for error in form.item_image.errors %}
-                                                    <span class="text-danger">{{ error }}</span></br>
-                                                    {% endfor %}
-                                                    {% endif %}
+                                                    {{ form.date_to.label }}
+                                                    {{ form.date_to(class="form-control", placeholder="End Date", pattern="\d{4}-\d{2}-\d{2}") }}
                                                 </div>
                                                 {{ form.submit(class="mt-1 btn btn-primary") }}
                                             </form>

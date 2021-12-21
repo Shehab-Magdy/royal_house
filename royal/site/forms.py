@@ -12,9 +12,13 @@ class OfferForm(FlaskForm):
     item_name  = StringField('Name', validators=[])
     item_price = DecimalField('Price', places=2, rounding=None)
     item_sale_price = DecimalField('Sale Price', places=2, rounding=None)
-    date_from = DateField('Start Date', format='%Y-%m-%d')
-    date_to = DateField('End Date', format='%Y-%m-%d')
     description = TextAreaField('Description', validators=[])
     item_image = FileField('Upload image', validators=[file_allowed(['jpg','png'])])
     submit = SubmitField('Save')
-    
+
+class MagazineForm(FlaskForm):
+    code = IntegerField('Code', validators=[DataRequired()])
+    magazine_name  = StringField('Name', validators=[])
+    date_from = DateField('Start Date', format='%Y-%m-%d')
+    date_to = DateField('End Date', format='%Y-%m-%d')
+    submit = SubmitField('Save')

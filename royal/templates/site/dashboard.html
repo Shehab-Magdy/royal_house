@@ -130,7 +130,7 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">Dashboards</li>
                             <li>
-                                <a href="{{ url_for('site.home') }}">
+                                <a href="{{ url_for('site.home') }}" class="mm-active">
                                     <i class="metismenu-icon pe-7s-rocket"></i>
                                     Dashboard
                                 </a>
@@ -138,15 +138,21 @@
 
                             <li class="app-sidebar__heading">Categories</li>
                             <li>
-                                <a href="{{ url_for('site.create_offer_item') }}" class="mm-active">
+                                <a href="{{ url_for('site.create_offer_item') }}">
                                     <i class="metismenu-icon pe-7s-mouse">
                                     </i> New Offer
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('site.add_magazine') }}">
+                                    <i class="metismenu-icon pe-7s-mouse">
+                                    </i> New Magazine
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">Magazine</li>
                             
                             <li>
-                                <a href="{{ url_for('site.magazine') }}" class="mm-active">
+                                <a href="{{ url_for('site.magazine') }}">
                                     <i class="metismenu-icon pe-7s-mouse">
                                     </i> Magazine
                                 </a>
