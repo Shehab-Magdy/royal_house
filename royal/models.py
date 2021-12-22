@@ -24,6 +24,9 @@ class Magazine(db.Model):
     date_to = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
     # offer = db.relationship('Offer', backref = 'offer', lazy = True)
 
+    def __repr__(self):
+        return f"Magazine ('{self.code}','{self.magazine_name }','{self.date_from }','{self.date_to }')"
+
 class ItemSections(db.Model):
     __tablename__ = 'itemsections'
     id = db.Column(db.Integer, primary_key = True)
@@ -42,7 +45,7 @@ class Magazinesections(db.Model):
     # offer = db.relationship('Offer', backref = 'offer', lazy = True)
     
     def __repr__(self):
-        return f"Magazine Section('{self.code}','{self.section_name}')"
+        return f"Magazine Section('{self.id}','{self.section_name}')"
 
 
 class Offer(db.Model):
