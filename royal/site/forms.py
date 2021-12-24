@@ -16,6 +16,15 @@ def magazine_selection():
     mag = Magazine.query.all()
     return mag
 
+class MagazineSelection(FlaskForm):
+    mag = QuerySelectField('Magazine',validators=[DataRequired()],query_factory=magazine_selection,allow_blank=True,blank_text='Select Magazine', get_label='magazine_name')
+    submit = SubmitField('Get')
+
+class MagazineSection(FlaskForm):
+    code = IntegerField('Code', validators=[DataRequired()])
+    magazine_section = StringField('Name', validators=[])
+    submit = SubmitField('Save')
+
 class OfferForm(FlaskForm):
     code = IntegerField('Code', validators=[DataRequired()])
     item_name  = StringField('Name', validators=[])

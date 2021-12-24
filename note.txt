@@ -3,6 +3,7 @@ app = create_app()
 app.app_context().push()
 from royal import db
 db.create_all()
+from royal.models import Offer, Items, Magazinesections, ItemSections, Magazine
 
 apt install libpango-1.0-0 libharfbuzz0b libpangoft2-1.0-0 libffi-dev libjpeg-dev libopenjp2-7-dev
 

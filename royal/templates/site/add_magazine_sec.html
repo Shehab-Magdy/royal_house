@@ -150,13 +150,13 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url_for('site.add_magazine') }}" class="mm-active">
+                                <a href="{{ url_for('site.add_magazine') }}">
                                     <i class="metismenu-icon pe-7s-mouse">
                                     </i> New Magazine
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url_for('site.add_magazine_section') }}">
+                                <a href="{{ url_for('site.add_magazine') }}" class="mm-active">
                                     <i class="metismenu-icon pe-7s-mouse">
                                     </i> New Magazine Section
                                 </a>
@@ -181,17 +181,6 @@
                                 <div class="page-title-icon">
                                     <i class="pe-7s-display1 icon-gradient bg-premium-dark"></i>
                                 </div>
-                                <!-- <div>
-                                    <form action="{{ url_for('site.create_offer_item') }}" method="GET">
-                                        <label for="q">Code</label>
-                                        <input type="text" placeholder="Item Code" name="q">
-                                        <input type="submit" value="Get">
-                                    </form>
-                                    <div class="page-title-subheading">
-                                        Please write the item code and you can add the selling
-                                        price, picture and date.
-                                    </div>
-                                </div> -->
                             </div>
                             <div class="page-title-actions">
                                 <button type="button" data-toggle="tooltip" title="Example Tooltip"
@@ -209,13 +198,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
-                        <li class="nav-item">
-                            <a role="tab" class="nav-link active" id="tab-0" data-toggle="tab" href="#tab-content-0">
-                                <span>Cheese</span>
-                            </a>
-                        </li>
-                    </ul> -->
                     <div class="tab-content">
                         <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                             <div class="row">
@@ -227,19 +209,11 @@
                                                 {{ form.hidden_tag() }}
                                                   <div class="position-relative form-group">
                                                     {{ form.code.label }}
-                                                    {{ form.code(class="form-control", placeholder="Magazine Code", type="number") }}
+                                                    {{ form.code(class="form-control", placeholder="Section Code", type="number") }}
                                                 </div>
                                                   <div class="position-relative form-group">
-                                                    {{ form.magazine_name.label }}
-                                                    {{ form.magazine_name(class="form-control", placeholder="Magazine Name") }}
-                                                </div>
-                                                <div class="position-relative form-group">
-                                                    {{ form.date_from.label }}
-                                                    {{ form.date_from(class="form-control", placeholder="Start Date", pattern="\d{4}-\d{2}-\d{2}") }}
-                                                </div>
-                                                <div class="position-relative form-group">
-                                                    {{ form.date_to.label }}
-                                                    {{ form.date_to(class="form-control", placeholder="End Date", pattern="\d{4}-\d{2}-\d{2}") }}
+                                                    {{ form.magazine_section.label }}
+                                                    {{ form.magazine_section(class="form-control", placeholder="Section Name") }}
                                                 </div>
                                                 {{ form.submit(class="mt-1 btn btn-primary") }}
                                             </form>

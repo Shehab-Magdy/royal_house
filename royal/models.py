@@ -22,7 +22,7 @@ class Magazine(db.Model):
     magazine_name = db.Column(db.String(100), nullable = False)
     date_from = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
     date_to = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
-    # offer = db.relationship('Offer', backref = 'offer', lazy = True)
+    offermag = db.relationship('Offer', backref = 'offer_mag', lazy = True)
 
     def __repr__(self):
         return f"Magazine ('{self.code}','{self.magazine_name }','{self.date_from }','{self.date_to }')"
@@ -32,7 +32,7 @@ class ItemSections(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     code = db.Column(db.Integer, unique = True, nullable = False)
     section_name = db.Column(db.String(100), nullable = False)
-    # items = db.relationship('Items', backref = 'item', lazy = True)
+    items_sec_ref = db.relationship('Items', backref = 'item_sec_ref', lazy = True)
 
     def __repr__(self):
         return f"Item Section('{self.code}','{self.section_name}')"
@@ -42,7 +42,7 @@ class Magazinesections(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     code = db.Column(db.Integer, unique = True, nullable = False)
     section_name = db.Column(db.String(100), nullable = False)
-    # offer = db.relationship('Offer', backref = 'offer', lazy = True)
+    offer_sec = db.relationship('Offer', backref = 'mag_sec', lazy = True)
     
     def __repr__(self):
         return f"Magazine Section('{self.id}','{self.section_name}')"
@@ -70,7 +70,7 @@ class Items(db.Model):
     code = db.Column(db.Integer, unique = True, nullable = False)
     item_name = db.Column(db.String(100), nullable = False)
     item_price = db.Column(db.Float(), nullable = False)
-    item_section = db.Column(db.Integer, db.ForeignKey('itemsections.id'), nullable = False)
+    item_section = db.Column(db.Integer, db.ForeignKey('itemsections.code'), nullable = False)
 
     def __repr__(self):
         return f"Item('{self.code}','{self.item_name}','{self.item_price}')"

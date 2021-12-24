@@ -7,9 +7,9 @@ from flask import render_template, url_for, flash, redirect, request, Blueprint,
 #from sqlalchemy.orm import session
 from royal import db  # ,app,  crypt
 # ,LoginForm, RegistrationForm,
-from royal.site.forms import OfferForm, MagazineForm
+from royal.site.forms import OfferForm, MagazineForm, MagazineSelection, MagazineSection
 from royal.site.utils import save_image
-from royal.models import Offer, Items, Magazine  # , User,
+from royal.models import Offer, Items, Magazine,Magazinesections  # , User,
 # , login_user, current_user, logout_user,
 from flask_login import login_required, utils
 from flask_weasyprint import HTML, render_pdf
@@ -51,22 +51,20 @@ def create_offer_item():
             return render_template("site/items.html", title="Make Offer", form=form)
 
 
-@site.route("/magazine", methods=['GET'])
+@site.route("/magazine", methods=['GET', 'POST'])
 def magazine():
-    if request.args:
-        start = request.args.get('d_from')  # '2021-11-31'
-        end = request.args.get('d_to')  # '2021-12-31'
-        items_offer = Offer.query.filter(Offer.date_to <= end).filter(Offer.date_from >= start).all()
-        # print(items_offer)
+    if request.method=='POST':
+        mag_form = MagazineSelection()
+        mag = mag_form.mag.data.id
+        items_offer = Offer.query.filter(Offer.magazine_id == mag).all()
         file_name = 'royal/static/pdf/magazine' + str(datetime.now().strftime("%Y%m%d%H%M%S"))+'.pdf'
         download_file_name = 'magazine' + str(datetime.now().strftime("%Y%m%d%H%M%S"))+'.pdf'
-        html_file = render_template("site/magazine.html", title="Magazine", items_offer=items_offer, file_name=download_file_name)
-        # print(file_name)
-        # render_pdf()
+        html_file = render_template("site/magazine.html", title="Magazine", items_offer=items_offer, file_name=download_file_name, form=mag_form)
         HTML(string=html_file).write_pdf(file_name)
         return html_file
     else:
-        return render_template("site/magazine.html", title="Magazine")
+        mag_form = MagazineSelection()
+        return render_template("site/magazine.html", title="Magazine",form=mag_form)
 
 
 @site.route("/add_magazine", methods=['GET', 'POST'])
@@ -85,3 +83,20 @@ def add_magazine():
         else:
             flash("Data didn't saved. Please review your inputs!", 'danger')
             return render_template("site/add_magazine.html", title="Add Magazine", form=form)
+
+@site.route("/add_magazine_section", methods=['GET', 'POST'])
+def add_magazine_section():
+    if request.method == 'GET':
+        form = MagazineSection()
+        return render_template("site/add_magazine_sec.html", title="Add New Magazine Section", form=form)
+    elif request.method == 'POST':
+        form = MagazineSection()
+        if form.validate_on_submit():
+            new_mag_sec = Magazinesections(code=form.code.data, section_name=form.magazine_section.data)
+            db.session.add(new_mag_sec)
+            db.session.commit()
+            flash('Data saved successfully!', 'success')
+            return redirect(url_for('site.add_magazine_section'))
+        else:
+            flash("Data didn't saved. Please review your inputs!", 'danger')
+            return render_template("site/add_magazine_sec.html", title="Add Magazine", form=form)

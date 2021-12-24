@@ -434,12 +434,13 @@
 
 <body>
     <div class="container">
-        <form action="" method="get">
-            <label for="d_from">Start Date</label>
-            <input type="datetime" name="d_from" id="" value '2021-11-31'>
-            <label for="d_to">End Date</label>
-            <input type="datetime" name="d_to" id="" value '2021-11-31'>
-            <input type="submit" value="Find">
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <div class="position-relative form-group">
+              {{ form.mag.label }}
+              {{ form.mag(class="form-control", readonly="readonly") }}
+          </div>
+          {{ form.submit(class="mt-1 btn btn-primary") }}
         </form>
         {% if items_offer %}
         {% for item in items_offer %}
@@ -455,7 +456,7 @@
                         <div class="col-md-7 col-sm-12 col-xs-12">
                             <div class="product-deatil">
                                 <p class="price-container">
-                                    <span>{{ item.date_from.strftime('%Y/%m/%d') }}</span> &nbsp; <span>{{ item.date_to.strftime('%Y/%m/%d') }}</span>
+                                    <span>{{ item.offer_mag.date_from.strftime('%Y/%m/%d') }}</span> &nbsp; <span>{{ item.offer_mag.date_to.strftime('%Y/%m/%d') }}</span>
                                 </p>
                                 <span class="tag1"></span>
                             </div>
