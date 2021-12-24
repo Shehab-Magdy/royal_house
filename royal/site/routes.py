@@ -13,6 +13,8 @@ from royal.models import Offer, Items, Magazine,Magazinesections  # , User,
 # , login_user, current_user, logout_user,
 from flask_login import login_required, utils
 from flask_weasyprint import HTML, render_pdf
+from sqlalchemy import func
+
 
 site = Blueprint('site', __name__)
 
@@ -20,7 +22,12 @@ site = Blueprint('site', __name__)
 @site.route("/")
 @site.route("/home")
 def home():
-    return render_template("site/dashboard.html")
+    data = {}
+    data['items_count']=Items.query.count()
+    data['mag_count']=Magazine.query.count()
+    data['offers_count']=Offer.query.count()
+
+    return render_template("site/dashboard.html", data = data)
 
 
 @site.route("/item", methods=['GET', 'POST'])

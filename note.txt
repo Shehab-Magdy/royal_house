@@ -11,5 +11,3 @@ apt install libpango-1.0-0 libharfbuzz0b libpangoft2-1.0-0 libffi-dev libjpeg-de
 -- insert into itemsections (code, section_name) values(2,'Clothes')
 -- insert into items (code, item_name, item_price, item_section) values(1,'Romy cheese',26,1)
 -- insert into items (code, item_name, item_price, item_section) values(2,'Sweet shirt',260,2)
--- insert into magazine_sections (code, section_name) values(1,'Cheese')
--- insert into magazine_sections (code, section_name) values(2,'Clothes')
